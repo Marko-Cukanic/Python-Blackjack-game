@@ -57,7 +57,7 @@ class Chips:
         self.total -= self.bet
     
 # Game
-## Game
+
 game_on = True
 chips = Chips() 
 print("Welcome to blackjack")
@@ -120,6 +120,8 @@ while game_on:
                     dealt_card = deck.deal()
                     dealershand.add_card(dealt_card)
                     print(f"The dealers hand value is {dealershand.value}")
+                    if dealershand.value > 17:
+                        break
                 else:
                     print(f"The dealers hand value is {dealershand.value}")
                     dealerhitting = False
@@ -138,9 +140,10 @@ while game_on:
                 chips.lose_bet()
 
             hitting = False 
-    yn = input("would you like to keep playing y/n")
+    yn = input("would you like to keep playing y/n\n").lower()
     if yn == "y":
         game_on = True
-    elif yn == "n":
+    else:
         game_on = False
+    
   
